@@ -9,6 +9,8 @@ export const Api = () => {
     baseURL: process.env.REACT_APP_URL,
     headers: {
       Authorization: `Bearer ${authToken}`,
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
     },
   });
 
