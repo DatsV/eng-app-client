@@ -1,0 +1,47 @@
+.snack {
+  padding: 5px 10px !important;
+  border-radius: 15px !important;
+  width: auto;
+
+  div:last-child {
+    margin-right: 0;
+  }
+}
+
+.close {
+  cursor: pointer;
+
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+
+  &:hover {
+    background-color: rgb(255, 255, 255);
+    &::after,
+    &::before {
+      background-color: black !important;
+    }
+  }
+
+  &::after,
+  &::before {
+    position: absolute;
+    content: '';
+    width: 16px;
+    height: 3px;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transition: all 0.4s ease;
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}

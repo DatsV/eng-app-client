@@ -1,0 +1,69 @@
+@import '../../styles/mixins';
+
+.addGroupWrapper {
+  @include wrapper;
+
+  .addGroup {
+    @include popUp;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .textField {
+    div {
+      font-size: 18px;
+      font-weight: 600;
+      padding: 5px;
+      border-radius: inherit;
+      border: 1px solid transparent;
+      background: #00000026;
+    }
+    p {
+      font-size: 14px;
+      position: relative;
+      bottom: 0;
+      word-break: break-word;
+      margin: 5px;
+      line-height: 21px;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    gap: 20px;
+  }
+
+  .backButton:disabled {
+    background-color: rgb(155, 5, 17) !important;
+  }
+  .addButton:disabled {
+    background-color: green !important;
+  }
+
+  .areaContainers {
+    width: 100%;
+
+    .wordVariant {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    span {
+      font-size: 14px;
+      display: block;
+      margin: 5px;
+      font-weight: 500;
+    }
+  }
+}
+
+.preloader {
+  @include popUpPreloader;
+}

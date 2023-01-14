@@ -1,0 +1,269 @@
+.container {
+  gap: 50px;
+
+  flex-grow: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  transform: translate3d(0, 0, 0);
+
+  .box {
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: azure;
+
+    transition: top 0.4s ease, left 0.4s ease;
+
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+    border-radius: 0.5em;
+    cursor: pointer;
+
+    .text {
+      font-size: 24px;
+    }
+
+    @media (max-width: 760px) {
+      & {
+        width: 45px;
+        height: 45px;
+      }
+    }
+  }
+
+  @media (max-width: 821px) {
+    &.smallSix .box {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  @media (max-width: 761px) {
+    &.smallSix .box {
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    &.small {
+      .box {
+        width: 44px;
+      }
+      .wordsBlock {
+        gap: 1px;
+      }
+
+      &One {
+        .box {
+          width: 38px;
+          height: 38px;
+        }
+      }
+
+      &Two {
+        .box {
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      &Three {
+        .box {
+          width: 31px;
+          height: 31px;
+        }
+      }
+
+      &Four {
+        .box {
+          width: 30px;
+          height: 35px;
+        }
+        .wordsBlock {
+          gap: 0px;
+        }
+      }
+
+      &Five {
+        .box {
+          width: 28px;
+          height: 35px;
+        }
+        .wordsBlock {
+          gap: 0px;
+        }
+      }
+
+      &Six {
+        gap: 2%;
+        height: 100%;
+        justify-content: space-around;
+
+        .containerWords {
+          flex-direction: row;
+          align-items: flex-start;
+          gap: 13px;
+
+          .wordsBlock {
+            gap: 1px;
+            flex-direction: column;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 374px) {
+    .box {
+      width: 42px;
+      height: 42px;
+    }
+    &.small {
+      .box {
+        width: 38px;
+        height: 38px;
+      }
+
+      .wordsBlock {
+        gap: 1px;
+      }
+
+      &One {
+        .box {
+          width: 33px;
+          height: 33px;
+        }
+
+        .wordsBlock {
+          gap: 1px;
+        }
+      }
+
+      &Two {
+        .box {
+          width: 29px;
+          height: 29px;
+        }
+      }
+
+      &Three {
+        .box {
+          width: 26px;
+          height: 30px;
+        }
+      }
+
+      &Four {
+        .box {
+          width: 26px;
+          height: 30px;
+        }
+        .wordsBlock {
+          gap: 0px;
+        }
+      }
+
+      &Five {
+        .box {
+          width: 24px;
+          height: 30px;
+        }
+        .wordsBlock {
+          gap: 0px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-height: 735px) and (max-width: 600px) {
+    &.smallSix {
+      .box {
+        width: 35px;
+        height: 30px;
+      }
+      .containerAnswers {
+        gap: 12px;
+      }
+    }
+  }
+
+  @media screen and (min-height: 735px) and (max-width: 374px) {
+    &.smallSix {
+      .box {
+        width: 30px;
+      }
+      .containerWords {
+        gap: 10px;
+      }
+    }
+  }
+
+  @media screen and (max-height: 735px) and (max-width: 600px) {
+    &.smallSix {
+      gap: 0px;
+      .box {
+        width: 36px;
+        height: 25px;
+      }
+
+      .containerAnswers {
+        gap: 12px;
+      }
+    }
+  }
+
+  @media screen and (max-height: 735px) and (max-width: 374px) {
+    &.smallSix {
+      .box {
+        width: 28px;
+        height: 22px;
+      }
+
+      .containerWords {
+        gap: 10px;
+      }
+      .containerAnswers {
+        gap: 12px;
+      }
+    }
+  }
+
+  &Words,
+  &Answers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+    .dashed {
+      border: 1px solid rgba(255, 255, 255, 0.286);
+      box-sizing: border-box;
+      background-color: rgb(0 0 0 / 0%);
+    }
+
+    .wordsBlock {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+  }
+
+  &Answers {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 10px;
+    gap: 15px;
+  }
+
+  .answersBlock {
+    position: absolute;
+    background-color: greenyellow;
+  }
+}

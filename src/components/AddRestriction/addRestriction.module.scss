@@ -1,0 +1,31 @@
+@import '../../styles/mixins';
+
+.restrictionContainer {
+  @include wrapper;
+
+  .restriction {
+    @include popUp;
+
+    &Title {
+      font-size: 19px;
+      text-align: center;
+    }
+
+    .attention {
+      color: rgb(255, 166, 0);
+    }
+
+    &Buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      gap: 20px;
+      flex-direction: column;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

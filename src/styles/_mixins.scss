@@ -1,0 +1,74 @@
+@mixin pill {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 12%;
+  background: azure;
+  box-shadow: 0 0 0 70px/10 lighten(azure, 35);
+  border-radius: 70px;
+  transition: all 0.5s cubic-bezier(0.1, 0.9, 0, 1.2);
+}
+
+@mixin wrapper {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.455);
+  overflow-y: auto;
+
+  @media screen and (max-height: 420px) {
+    align-items: flex-start;
+  }
+
+  &.open {
+    display: flex;
+    z-index: 20;
+    opacity: 1;
+  }
+}
+
+@mixin popUp {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  color: wheat;
+
+  min-width: 300px;
+  width: 70%;
+  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 30px;
+  -webkit-box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+    -9px -3px 34px 0px rgb(255 255 255 / 52%);
+  -moz-box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+    -9px -3px 34px 0px rgb(255 255 255 / 52%);
+  box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+    -9px -3px 34px 0px rgb(255 255 255 / 52%);
+
+  @media screen and (max-height: 420px) {
+    margin: 50px auto;
+  }
+}
+
+@mixin popUpPreloader {
+  z-index: 20;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+}

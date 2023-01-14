@@ -1,0 +1,104 @@
+.profile {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 50px 0;
+
+  &Container {
+    margin: auto !important;
+    padding: 25px;
+
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 35px;
+
+    min-width: 300px;
+    max-width: 300px;
+
+    background-color: rgb(0 0 0 / 50%);
+    backdrop-filter: blur(20px);
+    border-radius: 40px;
+
+    -webkit-box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+      -9px -3px 34px 0px rgb(255 255 255 / 52%);
+    -moz-box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+      -9px -3px 34px 0px rgb(255 255 255 / 52%);
+    box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+      -9px -3px 34px 0px rgb(255 255 255 / 52%);
+
+    .item {
+      width: 100%;
+      display: flex;
+
+      justify-content: center;
+    }
+
+    .category,
+    .email {
+      font-size: 19px;
+      font-weight: bold;
+      color: white;
+      width: 80px;
+    }
+
+    .email {
+      text-align: center;
+      width: 100%;
+    }
+
+    .value {
+      font-weight: bold;
+      font-size: 18px;
+      color: rgb(255, 166, 0);
+      width: 80px;
+      text-align: center;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+  }
+}
+
+.popUp {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -5;
+
+  background-color: rgba(42, 36, 36, 0.639);
+  text-align: center;
+
+  &.open {
+    display: flex;
+    z-index: 15;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    color: azure;
+    font-size: 19px;
+    font-weight: bold;
+    max-width: 320px;
+    padding: 25px 10px;
+    border-radius: 15px;
+    background-color: rgb(42, 36, 36);
+
+    button {
+      margin-top: 15px;
+    }
+  }
+}

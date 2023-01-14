@@ -1,0 +1,83 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  overflow-y: auto;
+
+  .mode {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 99%;
+    gap: 50px;
+  }
+
+  .wordContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: max-content;
+
+    .wordBlock {
+      min-width: 240px;
+      max-width: 70%;
+      padding: 20px;
+      background-color: rgb(0 0 0 / 40%);
+      backdrop-filter: blur(10px);
+      border-radius: 40px;
+
+      -webkit-box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+        -9px -3px 34px 0px rgb(255 255 255 / 52%);
+      -moz-box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+        -9px -3px 34px 0px rgb(255 255 255 / 52%);
+      box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+        -9px -3px 34px 0px rgb(255 255 255 / 52%);
+
+      text-align: center;
+
+      span {
+        color: azure;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .answerBlock {
+    width: 99%;
+    display: flex;
+
+    justify-content: center;
+
+    .field {
+      max-width: 400px;
+      min-width: 250px;
+    }
+  }
+
+  .button {
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+
+    button {
+      width: max-content;
+    }
+  }
+}

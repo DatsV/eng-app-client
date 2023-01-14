@@ -1,0 +1,155 @@
+.lastPop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 20;
+
+  &Container {
+    transform: translate(0, -40%);
+    background: #0000008c;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(25px);
+    padding: 50px 35px;
+    border-radius: 25px;
+
+    span {
+      // margin: 25px;
+      display: block;
+      font-size: 22px;
+      max-width: 250px;
+      text-align: center;
+    }
+  }
+}
+
+.askPop {
+  position: fixed;
+  top: -25px;
+  width: 100%;
+  height: calc(100% + 25px);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+
+  @media screen and (max-height: 420px) {
+    overflow-y: auto;
+    align-items: flex-start;
+    &Container {
+      margin: 100px 0 40px;
+      padding: 16px;
+      transform: translate(0, 0) !important;
+    }
+  }
+
+  &Container {
+    position: relative;
+    transform: translate(0, -5%);
+    background: #0000008c;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(25px);
+    padding: 35px;
+    border-radius: 25px;
+
+    -webkit-box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+      -9px -3px 34px 0px rgb(255 255 255 / 52%);
+    -moz-box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+      -9px -3px 34px 0px rgb(255 255 255 / 52%);
+    box-shadow: 9px 13px 37px 0px rgb(255 255 255 / 52%),
+      -9px -3px 34px 0px rgb(255 255 255 / 52%);
+
+    .modeTitle {
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      color: wheat;
+    }
+
+    .groupInfo {
+      text-align: center;
+      font-size: 16px;
+
+      .group {
+        color: rgb(255, 166, 0);
+      }
+    }
+
+    .title {
+      font-size: 22px;
+      text-align: center;
+
+      span {
+        display: block;
+        font-size: 16px;
+      }
+    }
+
+    .variant {
+      cursor: pointer;
+      padding: 6px 10px;
+      margin: 15px 5px;
+      border-radius: 25px;
+      border: 1px solid bisque;
+      text-align: center;
+      transition: all 0.2s;
+      font-weight: 500;
+      text-overflow: ellipsis;
+
+      &:not(.disabled):hover {
+        background-color: rgba(255, 228, 196, 0.709);
+        color: black;
+      }
+
+      &:not(.disabled).active {
+        background-color: rgb(255, 228, 196);
+        color: black;
+        transform: scale(105%);
+      }
+
+      &.disabled {
+        border: 1px solid #ffe4c42b;
+        color: rgba(255, 255, 255, 0.475);
+        pointer-events: none;
+      }
+    }
+
+    .randomContainer {
+      .variant {
+        margin-bottom: 3px;
+      }
+
+      .helper {
+        text-align: center;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.475);
+
+        &.hide {
+          display: none;
+        }
+      }
+    }
+    .helper {
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .button {
+      margin-top: 30px;
+      display: flex;
+      width: 100%;
+
+      button {
+        margin: 0 auto;
+      }
+    }
+  }
+}

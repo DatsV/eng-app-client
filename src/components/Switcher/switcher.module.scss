@@ -1,0 +1,64 @@
+.switcher {
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  height: 29px;
+  box-shadow: 6px 0em 1em 0 rgb(0 0 0 / 10%), 0px 0em 2em 0em rgb(0 0 0 / 10%),
+    3px 11px 1em 0em rgb(0 0 0 / 10%);
+
+  .button {
+    position: relative;
+    padding: 0;
+    width: 50%;
+    border-radius: 25px 0 0 25px;
+
+    color: #ffffffb3;
+
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+
+    &.disabled {
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &::after,
+    &::before {
+      background: #5e64bc;
+      transition: 0.3s ease-in;
+      content: '';
+      position: absolute;
+      z-index: -1;
+    }
+
+    &:nth-child(1) {
+      &:before {
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 100%;
+      }
+      &.active {
+        &:before {
+          left: 0;
+        }
+      }
+    }
+    &:nth-child(2) {
+      border-radius: 0 25px 25px 0;
+      &:before {
+        top: 0;
+        right: 100%;
+        bottom: 0;
+        left: 0;
+      }
+      &.active {
+        &:before {
+          right: 0;
+        }
+      }
+    }
+  }
+}

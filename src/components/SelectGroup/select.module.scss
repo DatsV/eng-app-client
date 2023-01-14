@@ -1,0 +1,21 @@
+.butContainer {
+  height: 32px;
+}
+
+.addButton {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  transform: none !important;
+  margin: 0px auto;
+  background-color: #272a61 !important;
+  border-radius: 0 !important;
+
+  &:hover {
+    background-color: #141a8a !important;
+  }
+}
+
+li {
+  white-space: break-spaces !important;
+}

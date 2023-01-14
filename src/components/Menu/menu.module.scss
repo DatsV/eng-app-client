@@ -1,0 +1,266 @@
+@import '../../styles/mixins';
+
+$menu-color: wheat;
+$main-transition: all 0.4s ease-in-out;
+
+.wrapper {
+  position: fixed;
+  z-index: 15;
+  top: 0;
+  width: 100%;
+
+  color: $menu-color;
+
+  img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .backLight {
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s 0.4s ease;
+  }
+
+  &.active {
+    .navigate {
+      ul {
+        opacity: 1;
+      }
+    }
+
+    .backLight {
+      opacity: 1;
+      width: 100%;
+      height: 25px;
+      background-color: aqua;
+    }
+
+    .menu {
+      width: 100%;
+
+      transform: translateY(0);
+      top: 0;
+      background-color: rgb(0 0 0 / 50%);
+      backdrop-filter: blur(20px);
+      border-radius: 0 0 40px 40px;
+      border-bottom: 1px solid;
+
+      .userBar {
+        opacity: 1;
+      }
+    }
+
+    .footer {
+      margin-bottom: 5px;
+      &::after,
+      &::before {
+        transform: rotate(180deg);
+      }
+    }
+
+    .footer .helper {
+      display: block;
+      height: 30px;
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  top: 25px;
+
+  overflow: hidden;
+  background-color: rgb(0 0 0 / 50%);
+  transition: $main-transition;
+  transform: translateY(-100%);
+
+  .userBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    margin: 20px;
+    transition: opacity 0.6s ease-in;
+
+    .title {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      line-height: 1rem;
+      font-size: 11px;
+
+      span:nth-child(1) {
+        font-size: 20px;
+      }
+    }
+
+    &_item,
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background-color: rgb(255 255 255 / 40%);
+      transition: $main-transition;
+
+      &:hover {
+        background-color: $menu-color;
+      }
+    }
+
+    .active {
+      background-color: #5e64bc;
+    }
+  }
+
+  .navigate {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    &_item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+    }
+
+    ul {
+      opacity: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 95%;
+      gap: 20px;
+      transition: opacity 0.6s ease-in;
+
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      li {
+        display: flex;
+        align-items: center;
+        width: 160px;
+        overflow: hidden;
+        border-radius: 10px;
+        background-color: rgb(255 255 255 / 40%);
+
+        a {
+          width: 100%;
+          text-decoration: none;
+
+          &.active {
+            background-color: #5e64bc;
+
+            div {
+              &:hover {
+                background-color: inherit;
+              }
+            }
+          }
+        }
+
+        div {
+          padding: 5px;
+          color: black;
+          transition: $main-transition;
+
+          &:hover {
+            background-color: $menu-color;
+
+            div {
+              color: black;
+            }
+          }
+
+          div {
+            display: flex;
+            align-items: center;
+            height: 30px;
+            pointer-events: none;
+          }
+
+          span {
+            font-size: 18px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+
+  .helper {
+    display: none;
+    width: 100%;
+    height: 25px;
+    position: absolute;
+    top: 0;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+
+    transition: transform 0.2s ease-in;
+
+    background: url(../../assets/icons/down-arrow-svgrepo-com.svg) 50% / cover
+      no-repeat;
+  }
+
+  &::before {
+    margin-right: 10px;
+  }
+
+  &::after {
+    margin-left: 10px;
+  }
+}
+
+.logOut {
+  @include wrapper;
+  z-index: 40 !important;
+
+  &Container {
+    @include popUp;
+
+    text-align: center;
+    font-size: 18px;
+
+    span:first-child {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      gap: 20px;
+    }
+  }
+}
