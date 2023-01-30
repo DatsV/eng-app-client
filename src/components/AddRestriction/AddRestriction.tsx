@@ -25,7 +25,7 @@ export const AddRestriction: React.FC<AddRestrictionType> = ({
             : 'Вы на пробной версии. Если хотите добавить больше чем'}
 
           <span className={s.attention}>
-            {isLimit ? ' 1000 words' : isGroup ? ' 2 группы' : ' 20 слов'}
+            {isLimit ? ' 1000 words' : isGroup ? ' 2 группы' : ' 40 слов'}
           </span>
           {isLimit ? (
             <span>, please remove some words</span>
