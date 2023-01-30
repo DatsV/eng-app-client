@@ -2,7 +2,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { TextField } from '@mui/material';
 import Button from '@mui/material/Button';
 import clsx from 'clsx';
-import React, { useContext } from 'react';
+import React, { KeyboardEventHandler, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
@@ -35,6 +35,8 @@ export const AddWord: React.FC<AddWordType> = ({
   ) as ActiveGroupContextType;
   const [parts, setParts] = React.useState<'add' | 'confirm'>('add');
   const [loading, setLoading] = React.useState(false);
+  const translateField = React.useRef<HTMLFormElement | null>(null);
+  const buttonSubmit = React.useRef<HTMLButtonElement | null>(null);
 
   const userAccessRights = useAppSelector(getUserAccessRights);
   const userWordsCount = useAppSelector(getUserWordsCount);
@@ -98,6 +100,17 @@ export const AddWord: React.FC<AddWordType> = ({
     status === 'rejected' && closeAdd();
   };
 
+  const pressEnter = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      if (!isValid) {
+        translateField.current?.focus();
+        return;
+      }
+      buttonSubmit.current?.click();
+    }
+  };
+
   if (!userAccessRights && userWordsCount && userWordsCount >= 20) {
     return <AddRestriction openAdd={openAdd} close={closeAdd} />;
   }
@@ -122,6 +135,7 @@ export const AddWord: React.FC<AddWordType> = ({
               <div className={s.areaContainers}>
                 <span>English</span>
                 <TextField
+                  onKeyDown={pressEnter}
                   {...register('english')}
                   helperText={errors.english?.message as string}
                   error={!!errors.english?.message}
@@ -141,6 +155,8 @@ export const AddWord: React.FC<AddWordType> = ({
               <div className={s.areaContainers}>
                 <span>Translate</span>
                 <TextField
+                  inputRef={translateField}
+                  onKeyDown={pressEnter}
                   {...register('translate')}
                   helperText={errors.translate?.message as string}
                   error={!!errors.translate?.message}
@@ -163,6 +179,7 @@ export const AddWord: React.FC<AddWordType> = ({
                   Cancel
                 </Button>
                 <Button
+                  ref={buttonSubmit}
                   type='submit'
                   disabled={!isValid}
                   variant='contained'
