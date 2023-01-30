@@ -15,7 +15,9 @@ export const Profile = () => {
   const user = useAppSelector(getUserAll);
   const userAccessRights = useAppSelector(getUserAccessRights);
 
-  const [variant, setVariant] = React.useState<'profile' | 'code'>('profile');
+  const [variant, setVariant] = React.useState<'profile' | 'code' | 'support'>(
+    'profile',
+  );
   const [popUp, setPopUp] = React.useState(false);
   const [showEmail, setShowEmail] = React.useState(false);
   const [showEmailError, setShowEmailError] = React.useState(false);
@@ -49,7 +51,7 @@ export const Profile = () => {
   return (
     <div className={clsx(s.profile)}>
       <div className={s.profileContainer}>
-        {variant === 'profile' ? (
+        {variant === 'profile' && (
           <>
             <div className={s.item}>
               <span className={s.email}>{user?.email.split('@')[0]}</span>
@@ -95,14 +97,49 @@ export const Profile = () => {
               >
                 Dictionary
               </Button>
+
+              <Button onClick={() => setVariant('support')} variant='contained'>
+                Support
+              </Button>
             </div>
           </>
-        ) : (
+        )}
+
+        {variant === 'code' && (
           <CodeForm
             goBack={() => setVariant('profile')}
             post
             onSuccess={onSuccess}
           />
+        )}
+
+        {variant === 'support' && (
+          <div className={s.mailPopup}>
+            <span>Mail support with</span>
+
+            <a
+              href='https://mail.google.com/mail/?view=cm&fs=1&su=User%20help&to=engdictionarysupp@gmail.com'
+              target='_blank'
+            >
+              <Button variant='contained' fullWidth>
+                Gmail
+              </Button>
+            </a>
+
+            <a href='mailto:engdictionarysupp@gmail.com' target='_blank'>
+              <Button variant='contained' fullWidth>
+                Other Email
+              </Button>
+            </a>
+
+            <Button
+              onClick={() => setVariant('profile')}
+              variant='contained'
+              color='error'
+            >
+              Back
+            </Button>
+          </div>
         )}
       </div>
 

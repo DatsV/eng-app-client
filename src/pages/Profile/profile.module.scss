@@ -65,6 +65,24 @@
       gap: 25px;
     }
   }
+
+  .mailPopup {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+
+    font-size: 19px;
+    font-weight: bold;
+    color: white;
+
+    a {
+      text-decoration: none;
+      width: 60%;
+    }
+  }
 }
 
 .popUp {
