@@ -111,7 +111,7 @@ export const AddWord: React.FC<AddWordType> = ({
     }
   };
 
-  if (!userAccessRights && userWordsCount && userWordsCount >= 20) {
+  if (!userAccessRights && userWordsCount && userWordsCount >= 40) {
     return <AddRestriction openAdd={openAdd} close={closeAdd} />;
   }
 
