@@ -16,6 +16,7 @@ import { Activate } from './pages/Activate/Activate';
 import { Profile } from './pages/Profile/Profile';
 import { AdminPage } from './pages/AdminPage/AdminPage';
 import { fetchUser } from './redux/thunk/userThunk';
+import { TechnicalWork } from './pages/TechnicalWork/TechnicalWork';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -26,6 +27,8 @@ function App() {
   const userStatus = useAppSelector(getUserStatus);
 
   const [waiting, setWaiting] = React.useState(true);
+
+  const technicalWork = process.env.REACT_APP_TECHNICAL;
 
   const isReady = userStatus !== 'initial' && userStatus !== 'loading';
 
@@ -39,7 +42,7 @@ function App() {
   }, [location]);
 
   React.useEffect(() => {
-    if (systemPages) {
+    if (systemPages || technicalWork) {
       setWaiting(false);
       return;
     }
@@ -54,7 +57,7 @@ function App() {
   }, [dispatch]);
 
   React.useEffect(() => {
-    if (systemPages) {
+    if (systemPages || technicalWork) {
       return;
     }
     if (!userData && !isReady) {
@@ -63,6 +66,10 @@ function App() {
       navigation('/dictionary');
     }
   }, [userData, isReady]);
+
+  if (technicalWork) {
+    return <TechnicalWork />;
+  }
 
   if (waiting) {
     return (
